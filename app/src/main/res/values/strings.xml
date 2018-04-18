@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Hello Kotlin MVP</string>
+
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="save_name">Save name</string>
+    <string name="show_message">Show message</string>
+</resources>
