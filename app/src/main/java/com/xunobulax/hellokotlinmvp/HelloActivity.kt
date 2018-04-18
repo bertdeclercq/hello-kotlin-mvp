@@ -28,13 +28,17 @@ class HelloActivity : AppCompatActivity(), HelloContract.View, View.OnClickListe
     override fun onClick(v: View) {
         when (v.id) {
             R.id.buttonShowMessage -> {
+                hideKeyboard()
                 createMessage()
             }
         }
     }
 
-    private fun createMessage() {
+    private fun hideKeyboard() {
         (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(currentFocus.windowToken, 0)
+    }
+
+    private fun createMessage() {
         presenter.saveName(editTextFirstName.text.toString(), editTextLastName.text.toString())
         presenter.loadMessage()
     }
