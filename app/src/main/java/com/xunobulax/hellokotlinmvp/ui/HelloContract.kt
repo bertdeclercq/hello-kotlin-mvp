@@ -1,4 +1,4 @@
-package com.xunobulax.hellokotlinmvp
+package com.xunobulax.hellokotlinmvp.ui
 
 
 interface HelloContract {

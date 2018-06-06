@@ -1,7 +1,10 @@
-package com.xunobulax.hellokotlinmvp
+package com.xunobulax.hellokotlinmvp.ui
+
+import com.xunobulax.hellokotlinmvp.model.Person
+import javax.inject.Inject
 
 
-class HelloPresenter(val view: HelloContract.View) : HelloContract.Presenter {
+class HelloPresenter @Inject constructor(val view: HelloContract.View) : HelloContract.Presenter {
 
     private val person = Person()
 

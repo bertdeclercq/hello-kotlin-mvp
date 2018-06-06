@@ -1,4 +1,4 @@
-package com.xunobulax.hellokotlinmvp
+package com.xunobulax.hellokotlinmvp.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -6,15 +6,25 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import com.xunobulax.hellokotlinmvp.R
+import com.xunobulax.hellokotlinmvp.dagger.DaggerHelloComponent
+import com.xunobulax.hellokotlinmvp.dagger.HelloPresenterModule
 import kotlinx.android.synthetic.main.activity_hello.*
+import javax.inject.Inject
 
 class HelloActivity : AppCompatActivity(), HelloContract.View, View.OnClickListener {
 
-    private val presenter = HelloPresenter(this)
+    @Inject
+    lateinit var presenter: HelloPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hello)
+
+        DaggerHelloComponent.builder()
+                .helloPresenterModule(HelloPresenterModule(this))
+                .build()
+                .inject(this)
     }
 
     override fun showMessage(message: String) {

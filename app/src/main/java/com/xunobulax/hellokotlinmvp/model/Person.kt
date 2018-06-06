@@ -1,4 +1,4 @@
-package com.xunobulax.hellokotlinmvp
+package com.xunobulax.hellokotlinmvp.model
 
 
 data class Person(var firstName: String = "", var lastName: String = "") {
