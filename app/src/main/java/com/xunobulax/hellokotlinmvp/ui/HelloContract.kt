@@ -11,8 +11,11 @@ interface HelloContract {
     }
 
     interface Presenter {
+
         fun loadMessage()
 
         fun saveName(firstName: String, lastName: String)
+
+        fun setView(view: HelloActivity)
     }
 }

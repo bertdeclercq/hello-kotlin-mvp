@@ -7,8 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.xunobulax.hellokotlinmvp.R
-import com.xunobulax.hellokotlinmvp.dagger.DaggerHelloComponent
-import com.xunobulax.hellokotlinmvp.dagger.HelloPresenterModule
+import com.xunobulax.hellokotlinmvp.application.App
 import kotlinx.android.synthetic.main.activity_hello.*
 import javax.inject.Inject
 
@@ -21,10 +20,9 @@ class HelloActivity : AppCompatActivity(), HelloContract.View, View.OnClickListe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hello)
 
-        DaggerHelloComponent.builder()
-                .helloPresenterModule(HelloPresenterModule(this))
-                .build()
-                .inject(this)
+        (application as App).component.inject(this)
+
+        presenter.setView(this)
     }
 
     override fun showMessage(message: String) {

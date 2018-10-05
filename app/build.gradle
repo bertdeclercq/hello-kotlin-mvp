@@ -11,7 +11,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -22,18 +22,21 @@ android {
 }
 
 dependencies {
-    // App dependencies
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.core:core-ktx:1.0.0-beta01"
+
+    // App dependencies
+    implementation "androidx.appcompat:appcompat:1.0.0-beta01"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.2"
+    implementation "com.google.android.material:material:1.0.0-beta01"
 
     // Dagger dependencies
-    implementation "com.google.dagger:dagger:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
 
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test:runner:1.1.0-alpha3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.1.0-alpha3"
 }

@@ -1,12 +1,12 @@
 package com.xunobulax.hellokotlinmvp.model
 
 
-data class Person(var firstName: String = "", var lastName: String = "") {
+interface Person {
 
-    var name = ""
-        get() = "${firstName.trim()} ${lastName.trim()}".trim()
-        private set
+    var firstName: String
+    var lastName: String
+    var name: String
 
-    fun hasNoName() = name.isBlank()
+    fun hasName(): Boolean
 
 }

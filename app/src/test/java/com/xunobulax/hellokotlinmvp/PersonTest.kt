@@ -1,12 +1,12 @@
 package com.xunobulax.hellokotlinmvp
 
-import com.xunobulax.hellokotlinmvp.model.Person
+import com.xunobulax.hellokotlinmvp.model.PersonImpl
 import org.junit.Test
 
 
 class PersonTest {
 
-    private val person = Person()
+    private val person = PersonImpl()
 
     @Test
     fun personName_isCorrect() {
